@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Cabin:ital,wght@0,400;0,600;1,700&family=Open+Sans:wght@400;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    background-color: rgb(37, 22, 3);
+}
+
+header h1 {
+    font-size: 40px;
+    line-height: 50px;
+    padding: 20px;
+    color: #f5e5a5;
+    text-shadow: 2px 2px 2px rgba(255, 255, 265, 0.5);
+    font-family: 'Cabin', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 87.1vh;
+}
+
+main div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width:  100%;
+    height: 100%;
+    background-color: #f3de8b;
+}
+
+main div div {
+    display: flex;
+    flex-direction: row;
+    width:  300px;
+    height: 300px;
+    margin: 50px;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+canvas {
+    border: 5px solid #fde994;
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+
+}
+
+footer {
+    font-size: 20px;
+    line-height: 30px;
+    padding: 10px;
+    background-color: #83580b;
+    color: #f5e5a5;
+    padding: 2px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #f5e5a5;
+    transition: all 200ms ease-in-out;
+}
+
+footer a:hover {
+    border: 2px solid #f5dd7b;
+    padding: 2px;
+    color: #f5dd7b;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    background-color: #744e08;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    header h1 {
+        font-size: 35px;
+        line-height: 40px;
+    }
+    
+    main {
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    main div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 600px) {
+    
+    header h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    footer {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    
+  }
