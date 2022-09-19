@@ -47,17 +47,18 @@ canvas2.width = container2.offsetWidth;
 canvas2.height = container2.offsetHeight;
 
 ctx2.globalCompositeOperation = 'destination-over';
+hue2= 0;
 
 let number2 = 0;
 let scale2 = 10;
 
 function drawFlower2() {
-    let angle = number2 * 120;
+    let angle = number2 * 3.7;
     let radius = scale2 * Math.sqrt(number2);
     let positionX = radius * Math.sin(angle) + canvas2.width/2;
     let positionY = radius * Math.cos(angle) + canvas2.height/2;
 
-    ctx2.fillStyle = 'grey';
+    ctx2.fillStyle = 'hsl('+ hue2 +', 100%, 50%';
     ctx2.strokeStyle = 'black';
     ctx2.lineWidth = 2;
     ctx2.beginPath();
@@ -67,6 +68,7 @@ function drawFlower2() {
     ctx2.stroke();
 
     number2++;
+    hue2 += 0.5;
 }
 
 function animate2() {
@@ -119,3 +121,46 @@ function animate3() {
 }
 
 animate3();
+
+//canvas4
+
+const canvas4 = document.getElementById('canvas4');
+const container4 = document.getElementById('container4');
+const ctx4 = canvas4.getContext('2d');
+
+canvas4.width = container4.offsetWidth;
+canvas4.height = container4.offsetHeight;
+
+ctx4.globalCompositeOperation = 'destination-over';
+hue4= 0;
+
+let number4 = 0;
+let scale4 = 10;
+
+function drawFlower4() {
+    let angle = number4 * 3.7;
+    let radius = scale4 * Math.sqrt(number4);
+    let positionX = radius * Math.sin(angle) + canvas4.width/2;
+    let positionY = radius * Math.cos(angle) + canvas4.height/2;
+
+    ctx4.fillStyle = 'hsl('+ hue4 +', 100%, 50%';
+    ctx4.strokeStyle = 'black';
+    ctx4.lineWidth = 2;
+    ctx4.beginPath();
+    ctx4.arc(positionX, positionY, number4, 0, Math.PI * 2);
+    ctx4.closePath();
+    ctx4.fill();
+    ctx4.stroke();
+
+    number4++;
+    hue4 += 0.5;
+}
+
+function animate4() {
+    //ctx4. clearRect(0, 0, canvas4.width, canvas4.height);
+    drawFlower4();
+    if (number4 > 110) return;
+    requestAnimationFrame(animate4);
+}
+
+animate4();
