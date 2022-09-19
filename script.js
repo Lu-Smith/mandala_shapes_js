@@ -10,16 +10,17 @@ canvas1.height = container1.offsetHeight;
 
 let number1 = 0;
 let scale1 = 10;
+let numberSecond1 = 0;
 
 function drawFlower1() {
-    let angle = number1 * 2.5;
+    let angle = number1 * 4;
     let radius = scale1 * Math.sqrt(number1);
     let positionX = radius * Math.sin(angle) + canvas1.width/2;
     let positionY = radius * Math.cos(angle) + canvas1.height/2;
 
-    ctx1.fillStyle = 'red';
-    ctx1.strokeStyle = 'black';
-    ctx1.lineWidth = 5;
+    ctx1.fillStyle = '#ffd3b6';
+    ctx1.strokeStyle = '#fdffab';
+    ctx1.lineWidth = 3;
     ctx1.beginPath();
     ctx1.arc(positionX, positionY, 20, 0, Math.PI * 2);
     ctx1.closePath();
@@ -29,10 +30,30 @@ function drawFlower1() {
     number1++;
 }
 
+function drawFlowerSecond1() {
+    let angle = numberSecond1 * 0.3;
+    let radius = scale1/2.5 * Math.sqrt(numberSecond1);
+    let positionX = radius * Math.sin(angle) + canvas1.width/2;
+    let positionY = radius * Math.cos(angle) + canvas1.height/2;
+
+    ctx1.fillStyle = 'white';
+    ctx1.strokeStyle = '#76b39d';
+    ctx1.lineWidth = 3;
+    ctx1.beginPath();
+    ctx1.arc(positionX, positionY, 10, 0, Math.PI * 2);
+    ctx1.closePath();
+    ctx1.fill();
+    ctx1.stroke();
+
+    numberSecond1++;
+}
+
 function animate1() {
     //ctx1. clearRect(0, 0, canvas1.width, canvas1.height);
     drawFlower1();
     if (number1 > 110) return;
+    drawFlowerSecond1();
+    if (numberSecond1 > 110) return;
     requestAnimationFrame(animate1);
 }
 
@@ -51,7 +72,7 @@ ctx2.globalCompositeOperation = 'destination-over';
 hue2= 0;
 
 let number2 = 0;
-let scale2 = 10;
+let scale2 = 20;
 
 function drawFlower2() {
     let angle = number2 * 3.7;
@@ -60,7 +81,7 @@ function drawFlower2() {
     let positionY = radius * Math.cos(angle) + canvas2.height/2;
 
     ctx2.fillStyle = 'hsl('+ hue2 +', 100%, 50%';
-    ctx2.strokeStyle = 'black';
+    ctx2.strokeStyle = 'white';
     ctx2.lineWidth = 2;
     ctx2.beginPath();
     ctx2.arc(positionX, positionY, number2, 0, Math.PI * 2);
@@ -68,7 +89,7 @@ function drawFlower2() {
     ctx2.fill();
     ctx2.stroke();
 
-    number2++;
+    number2 += 0.2;
     hue2 += 0.5;
 }
 
@@ -94,16 +115,16 @@ canvas3.height = container3.offsetHeight;
 ctx3.globalCompositeOperation = 'destination-over';
 
 let number3 = 0;
-let scale3 = 10;
+let scale3 = 6;
 
 function drawFlower3() {
-    let angle = number3 * 130;
+    let angle = number3 * 0.07;
     let radius = scale3 * Math.sqrt(number3);
     let positionX = radius * Math.sin(angle) + canvas3.width/2;
     let positionY = radius * Math.cos(angle) + canvas3.height/2;
 
-    ctx3.fillStyle = 'grey';
-    ctx3.strokeStyle = 'black';
+    ctx3.fillStyle = '#a7bcb9';
+    ctx3.strokeStyle = '#393e46';
     ctx3.lineWidth = 3;
     ctx3.beginPath();
     ctx3.arc(positionX, positionY, number2, 0, Math.PI * 2);
@@ -111,13 +132,13 @@ function drawFlower3() {
     ctx3.fill();
     ctx3.stroke();
 
-    number3++;
+    number3 += 0.5;
 }
 
 function animate3() {
     //ctx3. clearRect(0, 0, canvas3.width, canvas3.height);
     drawFlower3();
-    if (number3 > 110) return;
+    if (number3 > 500) return;
     requestAnimationFrame(animate3);
 }
 
@@ -136,10 +157,10 @@ ctx4.globalCompositeOperation = 'destination-over';
 hue4= Math.random() * 360;
 
 let number4 = 0;
-let scale4 = 10;
+let scale4 = 12;
 
 function drawFlower4() {
-    let angle = number4 * 3.7;
+    let angle = number4 * 5.7;
     let radius = scale4 * Math.sqrt(number4);
     let positionX = radius * Math.sin(angle) + canvas4.width/2;
     let positionY = radius * Math.cos(angle) + canvas4.height/2;
@@ -153,14 +174,14 @@ function drawFlower4() {
     ctx4.fill();
     ctx4.stroke();
 
-    number4++;
+    number4 += 0.45;
     hue4 += 0.5;
 }
 
 function animate4() {
     //ctx4. clearRect(0, 0, canvas4.width, canvas4.height);
     drawFlower4();
-    if (number4 > 110) return;
+    if (number4 > 150) return;
     requestAnimationFrame(animate4);
 }
 
@@ -177,19 +198,21 @@ canvas5.width = container5.offsetWidth;
 canvas5.height = container5.offsetHeight;
 
 let number5 = 0;
-let scale5 = 10;
+let numberThird5 = 0;
+let scale5 = 4;
+let scaleSecond5 = 7;
 
 function drawFlower5() {
-    let angle = number5 * 2.5;
+    let angle = number5 * 0.06;
     let radius = scale5 * Math.sqrt(number5);
     let positionX = radius * Math.sin(angle) + canvas5.width/2;
     let positionY = radius * Math.cos(angle) + canvas5.height/2;
 
-    ctx5.fillStyle = 'red';
-    ctx5.strokeStyle = 'black';
-    ctx5.lineWidth = 5;
+    ctx5.fillStyle = '#668ba4';
+    ctx5.strokeStyle = '#97cba9';
+    ctx5.lineWidth = 2;
     ctx5.beginPath();
-    ctx5.arc(positionX, positionY, 20, 0, Math.PI * 2);
+    ctx5.rect(positionX -10, positionY -10, 20, 20);
     ctx5.closePath();
     ctx5.fill();
     ctx5.stroke();
@@ -197,10 +220,46 @@ function drawFlower5() {
     number5++;
 }
 
+function drawFlowerSecond5() {
+    let angle = number5 * 0.06;
+    let radius = scaleSecond5 * Math.sqrt(number5);
+    let positionX = radius * Math.sin(angle) + canvas5.width/2;
+    let positionY = radius * Math.cos(angle) + canvas5.height/2;
+
+    ctx5.fillStyle = '#97cba9';
+    ctx5.lineWidth = 2;
+    ctx5.beginPath();
+    ctx5.rect(positionX, positionY, 10, 10);
+    ctx5.closePath();
+    ctx5.fill();
+
+    number5++;
+}
+
+function drawFlowerThird5() {
+    let angle = numberThird5;
+    let radius = scaleSecond5/6 * Math.sqrt(numberThird5);
+    let positionX = radius * Math.sin(angle) + canvas5.width/2;
+    let positionY = radius * Math.cos(angle) + canvas5.height/2;
+
+    ctx5.fillStyle = '#dde0ab';
+    ctx5.fillStroke = '#97cba9';
+    ctx5.lineWidth = 2;
+    ctx5.beginPath();
+    ctx5.arc(positionX, positionY, 10, 0, Math.PI * 2);
+    ctx5.closePath();
+    ctx5.fill();
+    ctx5.stroke();
+
+    numberThird5++;
+}
+
 function animate5() {
     //ctx5. clearRect(0, 0, canvas5.width, canvas5.height);
     drawFlower5();
-    if (number5 > 110) return;
+    if (number5 > 1100) return;
+    drawFlowerSecond5();
+    drawFlowerThird5();
     requestAnimationFrame(animate5);
 }
 
@@ -216,22 +275,26 @@ canvas6.width = container6.offsetWidth;
 canvas6.height = container6.offsetHeight;
 
 ctx6.globalCompositeOperation = 'destination-over';
-hue6= 0;
+hue6= 150;
 
 let number6 = 0;
-let scale6 = 10;
+let scale6 = 8;
 
 function drawFlower6() {
-    let angle = number6 * 3.7;
+    let angle = number6 * 6;
     let radius = scale6 * Math.sqrt(number6);
     let positionX = radius * Math.sin(angle) + canvas6.width/2;
     let positionY = radius * Math.cos(angle) + canvas6.height/2;
 
     ctx6.fillStyle = 'hsl('+ hue6 +', 100%, 50%';
-    ctx6.strokeStyle = 'black';
-    ctx6.lineWidth = 2;
+    ctx6.strokeStyle = 'grey';
+    ctx6.lineWidth = 1;
     ctx6.beginPath();
     ctx6.arc(positionX, positionY, number6, 0, Math.PI * 2);
+    ctx6.moveTo(positionX/2, positionY/2);
+    ctx6.arc(positionX/2, positionY/2, number6/2, 0, Math.PI * 2);
+    ctx6.moveTo(positionX + 80, positionY + 80);
+    ctx6.arc(positionX + 80, positionY + 80, number6/2, 0, Math.PI * 2);
     ctx6.closePath();
     ctx6.fill();
     ctx6.stroke();
@@ -241,10 +304,12 @@ function drawFlower6() {
 }
 
 function animate6() {
-    //ctx6. clearRect(0, 0, canvas6.width, canvas6.height);
     drawFlower6();
-    if (number6 > 110) return;
+    if (number6 === 140) return;
+    
     requestAnimationFrame(animate6);
 }
 
 animate6();
+
+
