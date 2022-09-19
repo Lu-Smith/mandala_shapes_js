@@ -32,6 +32,7 @@ function drawFlower1() {
 function animate1() {
     //ctx1. clearRect(0, 0, canvas1.width, canvas1.height);
     drawFlower1();
+    if (number1 > 110) return;
     requestAnimationFrame(animate1);
 }
 
@@ -132,7 +133,7 @@ canvas4.width = container4.offsetWidth;
 canvas4.height = container4.offsetHeight;
 
 ctx4.globalCompositeOperation = 'destination-over';
-hue4= 0;
+hue4= Math.random() * 360;
 
 let number4 = 0;
 let scale4 = 10;
@@ -164,3 +165,86 @@ function animate4() {
 }
 
 animate4();
+
+//canvas5
+
+const canvas5 = document.getElementById('canvas5');
+const container5 = document.getElementById('container5');
+const ctx5 = canvas5.getContext('2d');
+console.log(ctx5);
+
+canvas5.width = container5.offsetWidth;
+canvas5.height = container5.offsetHeight;
+
+let number5 = 0;
+let scale5 = 10;
+
+function drawFlower5() {
+    let angle = number5 * 2.5;
+    let radius = scale5 * Math.sqrt(number5);
+    let positionX = radius * Math.sin(angle) + canvas5.width/2;
+    let positionY = radius * Math.cos(angle) + canvas5.height/2;
+
+    ctx5.fillStyle = 'red';
+    ctx5.strokeStyle = 'black';
+    ctx5.lineWidth = 5;
+    ctx5.beginPath();
+    ctx5.arc(positionX, positionY, 20, 0, Math.PI * 2);
+    ctx5.closePath();
+    ctx5.fill();
+    ctx5.stroke();
+
+    number5++;
+}
+
+function animate5() {
+    //ctx5. clearRect(0, 0, canvas5.width, canvas5.height);
+    drawFlower5();
+    if (number5 > 110) return;
+    requestAnimationFrame(animate5);
+}
+
+animate5();
+
+//canvas6
+
+const canvas6 = document.getElementById('canvas6');
+const container6 = document.getElementById('container6');
+const ctx6 = canvas6.getContext('2d');
+
+canvas6.width = container6.offsetWidth;
+canvas6.height = container6.offsetHeight;
+
+ctx6.globalCompositeOperation = 'destination-over';
+hue6= 0;
+
+let number6 = 0;
+let scale6 = 10;
+
+function drawFlower6() {
+    let angle = number6 * 3.7;
+    let radius = scale6 * Math.sqrt(number6);
+    let positionX = radius * Math.sin(angle) + canvas6.width/2;
+    let positionY = radius * Math.cos(angle) + canvas6.height/2;
+
+    ctx6.fillStyle = 'hsl('+ hue6 +', 100%, 50%';
+    ctx6.strokeStyle = 'black';
+    ctx6.lineWidth = 2;
+    ctx6.beginPath();
+    ctx6.arc(positionX, positionY, number6, 0, Math.PI * 2);
+    ctx6.closePath();
+    ctx6.fill();
+    ctx6.stroke();
+
+    number6++;
+    hue6 += 0.5;
+}
+
+function animate6() {
+    //ctx6. clearRect(0, 0, canvas6.width, canvas6.height);
+    drawFlower6();
+    if (number6 > 110) return;
+    requestAnimationFrame(animate6);
+}
+
+animate6();
