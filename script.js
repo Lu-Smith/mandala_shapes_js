@@ -3,7 +3,6 @@
 const canvas1 = document.getElementById('canvas1');
 const container1 = document.getElementById('container1');
 const ctx1 = canvas1.getContext('2d');
-console.log(ctx1);
 
 canvas1.width = container1.offsetWidth;
 canvas1.height = container1.offsetHeight;
@@ -49,7 +48,6 @@ function drawFlowerSecond1() {
 }
 
 function animate1() {
-    //ctx1. clearRect(0, 0, canvas1.width, canvas1.height);
     drawFlower1();
     if (number1 > 110) return;
     drawFlowerSecond1();
@@ -94,7 +92,6 @@ function drawFlower2() {
 }
 
 function animate2() {
-    //ctx2. clearRect(0, 0, canvas2.width, canvas2.height);
     drawFlower2();
     if (number2 > 110) return;
     requestAnimationFrame(animate2);
@@ -115,7 +112,7 @@ canvas3.height = container3.offsetHeight;
 ctx3.globalCompositeOperation = 'destination-over';
 
 let number3 = 0;
-let scale3 = 6;
+let scale3 = 4;
 
 function drawFlower3() {
     let angle = number3 * 0.07;
@@ -136,9 +133,8 @@ function drawFlower3() {
 }
 
 function animate3() {
-    //ctx3. clearRect(0, 0, canvas3.width, canvas3.height);
     drawFlower3();
-    if (number3 > 500) return;
+    if (number3 > 190) return;
     requestAnimationFrame(animate3);
 }
 
@@ -179,7 +175,6 @@ function drawFlower4() {
 }
 
 function animate4() {
-    //ctx4. clearRect(0, 0, canvas4.width, canvas4.height);
     drawFlower4();
     if (number4 > 150) return;
     requestAnimationFrame(animate4);
@@ -192,7 +187,6 @@ animate4();
 const canvas5 = document.getElementById('canvas5');
 const container5 = document.getElementById('container5');
 const ctx5 = canvas5.getContext('2d');
-console.log(ctx5);
 
 canvas5.width = container5.offsetWidth;
 canvas5.height = container5.offsetHeight;
@@ -255,7 +249,6 @@ function drawFlowerThird5() {
 }
 
 function animate5() {
-    //ctx5. clearRect(0, 0, canvas5.width, canvas5.height);
     drawFlower5();
     if (number5 > 1100) return;
     drawFlowerSecond5();
@@ -312,4 +305,49 @@ function animate6() {
 
 animate6();
 
+
+canvas1.addEventListener('click', function(){
+    ctx1. clearRect(0, 0, canvas1.width, canvas1.height);
+    number1 = 0;
+    scale1 = 10;
+    numberSecond1 = 0;
+    animate1();
+})
+
+canvas2.addEventListener('click', function(){
+    ctx2. clearRect(0, 0, canvas2.width, canvas2.height);
+    number2 = 0;
+    scale2 = 20;
+    animate2();
+})
+
+canvas3.addEventListener('click', function(){
+    ctx3. clearRect(0, 0, canvas3.width, canvas3.height);
+    number3 = 0;
+    scale3 = 6;
+    animate3();
+})
+
+canvas4.addEventListener('click', function(){
+    ctx4. clearRect(0, 0, canvas4.width, canvas4.height);
+    number4 = 0;
+    scale4 = 12;
+    animate4();
+})
+
+canvas5.addEventListener('click', function(){
+    ctx5. clearRect(0, 0, canvas5.width, canvas5.height);
+    number5 = 0;
+    numberThird5 = 0;
+    scale5 = 4;
+    scaleSecond5 = 7;
+    animate5();
+})
+
+canvas6.addEventListener('click', function(){
+    ctx6. clearRect(0, 0, canvas6.width, canvas6.height);
+    number6 = 0;
+    scale6 = 8;
+    animate6();
+})
 
