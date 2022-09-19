@@ -8,11 +8,15 @@ console.log(ctx1);
 canvas1.width = container1.offsetWidth;
 canvas1.height = container1.offsetHeight;
 
-let positionX = 100;
-let positionY = 100;
-let angle = 0;
+let number = 0;
+let scale = 10;
 
 function drawFlower() {
+    let angle = number * 1;
+    let radius = scale * Math.sqrt(number);
+    let positionX = radius * Math.sin(angle) + canvas1.width/2;
+    let positionY = radius * Math.cos(angle) + canvas1.height/2;
+
     ctx1.fillStyle = 'red';
     ctx1.strokeStyle = 'black';
     ctx1.lineWidth = 5;
@@ -21,14 +25,13 @@ function drawFlower() {
     ctx1.closePath();
     ctx1.fill();
     ctx1.stroke();
+
+    number++;
 }
 
 function animate1() {
-    ctx1. clearRect(0, 0, canvas1.width, canvas1.height);
+    //ctx1. clearRect(0, 0, canvas1.width, canvas1.height);
     //size += 0.05;
-    positionX += 2 * Math.sin(angle);
-    positionY += 2 * Math.cos(angle);
-    angle += 0.1;
     drawFlower();
     requestAnimationFrame(animate1);
 }
